@@ -1,0 +1,211 @@
+@use '../abstract/color.scss' as *;
+@use '../abstract/font.scss' as *;
+@use '../abstract/mixins.scss' as *;
+
+.main{
+  background-color: $primary-color;
+  width: 100%;
+  @include flexColumn;
+
+  &_upperSection{
+    @include flexCenter;
+    height: 76vh;
+
+    &_images{
+      width: 58%;
+      height: 100%;
+      position: relative;
+
+      .slideshow{
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+       overflow: hidden;
+       max-width: 100%;
+      }
+      .slideshowSlider{
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+        transition: ease 1000ms;
+      }
+
+      .slide{
+        height: 100%;
+        width: 100%;
+        display: inline-block;
+      }
+
+      .bg-1{
+        background-image: url('../../images/desktop-image-hero-1.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      .bg-2{
+        background-image: url('../../images/desktop-image-hero-2.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      .bg-3{
+        background-image: url('../../images/desktop-image-hero-3.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      
+      .slideshow-controls{
+        background-color: black;
+        position: absolute;
+        right: -156px;
+        bottom: 0px;
+        @include flex;
+
+        .svg-div{
+          padding: 1.6rem 2rem;
+          cursor: pointer;
+
+          svg{
+            stroke: $hover-color;
+          }
+
+          @media(hover: hover){
+            &:hover{
+              background-color: #a1a1a140!important;
+              mix-blend-mode: normal;
+              transition: all 0.1s ease-out;
+
+              svg{
+                opacity: 1;
+                z-index: 1;
+                stroke: $primary-text-color;
+                transition: all 0.1s ease-out;
+              }
+            }
+          }
+
+          svg{
+            opacity: 1;
+            z-index: 1;
+          }
+        }
+      }
+    }
+    &_infoDiv{
+      width: 42%;
+
+      &_container{
+        max-width: 400px;
+        margin: 0 auto;
+
+        .slideshow{
+          height: 100%;
+          width: 100%;
+          margin: 0 auto;
+          overflow: hidden;
+          max-width: 100%;
+        }
+        .slideshowSlider{
+          width: 100%;
+          height: 100%;
+          white-space: nowrap;
+          transition: ease 1000ms;
+        }
+        .slide{
+          height: 100%;
+          width: 100%;
+          display: inline-block;
+          white-space: normal;
+
+          &-header{
+            margin-bottom: 1.4rem;
+            font-size: 2.75rem;
+            line-height: 40px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            color: $secondary-color;
+          }
+          &-para{
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 22px;
+            color: $primary-text-color;
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        &-btn{
+          border: none;
+          outline: none;
+          background-color: transparent;
+          cursor: pointer;
+          text-transform: uppercase;
+          color: $secondary-color;
+          font-weight: 700;
+          letter-spacing: 0.8rem;
+          font-size: 13px;
+          margin-bottom: 2.5rem;
+          @include flexCenter;
+
+          @media(hover : hover){
+            &:hover{
+              color: $primary-text-color;
+
+              svg{
+                fill: $primary-text-color;
+              }
+            }
+          }
+
+          svg{
+            margin-left: 0.6rem;
+            fill: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+  &_lowerSection{
+    background-color: $primary-color;
+    display: grid;
+    height: fit-content;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    &_imageDiv{
+
+      .about-img{
+        width: 402px;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &_infoDiv{
+      grid-column: 2/4;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // align-items: center;
+      padding: 0 3rem;
+
+
+      &-header{
+        margin-top: 1rem;
+        margin-bottom: 0.22rem;
+        text-transform: uppercase;
+        font-size: 1rem;
+        line-height: 40px;
+        font-weight: 700;
+        letter-spacing: 5px;
+        color: $secondary-color;
+      }
+      &-para{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        color: $primary-text-color;
+      }
+    }
+  }
+}

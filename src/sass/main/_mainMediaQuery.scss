@@ -1,0 +1,109 @@
+@use '../abstract/mediaQuery.scss' as *;
+@use '../abstract/mixins.scss' as *;
+@use '../abstract/color.scss' as *;
+
+
+@media #{$media-desktop}{
+  .main{
+    // display: none;
+
+    &_upperSection{
+      height: 72vh;
+
+      &_images{
+        width: 55%;
+      }
+    &_infoDiv{
+      width: 45%;
+    }
+    }
+  }
+}
+@media #{$media-mobile-sm}{
+  .main{
+
+    &_upperSection{
+      @include flexColumn;
+      height: 100%;
+      align-items: flex-start;
+
+      &_images{
+        width: 100%;
+
+        .slide{
+          height: 370px;
+        }
+        .bg-1{
+          background-image: url('../../images/mobile-image-hero-1.jpg');
+        }
+        .bg-2{
+          background-image: url('../../images/mobile-image-hero-2.jpg');
+        }
+        .bg-3{
+          background-image: url('../../images/mobile-image-hero-3.jpg');
+        }
+        .slideshow-controls{
+          right: 0px;
+          bottom: 3px;
+          z-index: 5;
+
+          .svg-div{
+            padding: 1.2rem 1.4rem;
+
+            svg{
+              stroke: $primary-color;
+              width: 10px;
+              height: 16px;
+            }
+          }
+        }
+      }
+      &_infoDiv{
+        width: 100%;
+        margin-bottom: 1rem;
+
+        &_container{
+          max-width: 100%;
+          margin: 2.5rem 2.1rem;
+
+          .slide{
+            &-header{
+            font-size: 2.5rem;
+            line-height: 35px;
+            margin-bottom: 1rem;
+            }
+            &-para{
+              margin-bottom: 2rem;
+            }
+          }
+        }
+      }
+    }
+    &_lowerSection{
+      @include flexColumn;
+
+      &_imageDiv{
+
+        .about-img{
+          // display: none;
+          width: 100%;
+        }
+      }
+
+      &_infoDiv{
+        // display: none;
+        padding: 0 2.1rem;
+        grid-column: 2/2;
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+
+        &-header{
+          margin-bottom: 0.35rem;
+        }
+        &-para{
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

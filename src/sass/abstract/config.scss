@@ -1,0 +1,14 @@
+@use './font.scss' as *;
+@use './color.scss' as *;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li{
+  list-style: none;
+}
+body{
+  font-family: $primary-font;
+  font-size: 12px;
+}

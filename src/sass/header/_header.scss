@@ -1,0 +1,66 @@
+@use '../abstract/color.scss' as *;
+@use '../abstract/mixins.scss' as *;
+
+.header{
+  position: absolute;
+  z-index: 10;
+  top: 50px;
+  left: 60px;
+
+  &_nav{
+    @include flexCenter;
+    
+    .navbar_toggle{
+      display: none;
+      z-index: 40;
+       
+      .bar{
+        width: 25px;
+        height: 2.5px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: $secondary-color;
+        display: block;
+        cursor: pointer;
+        }
+    }
+    &_logoDiv{
+      cursor: pointer;
+    }
+    &_listDiv{
+      margin-left: 70px;
+      // display: none;
+
+      .lists{
+        @include flexCenter;
+        gap: 2rem;
+
+        .item{
+          font-weight: 700;
+          font-size: 13px;
+          cursor: pointer;
+          color: $primary-color;
+          position: relative;
+
+          &:after{
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -7px;
+            width: 0px;
+            height: 2px;
+            background: $primary-color;
+            transition: all 0.45s;
+          }
+
+          @media(hover : hover){
+            &:hover:after{
+              width: 100%;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
